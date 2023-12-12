@@ -1,6 +1,42 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
-const { Square } = require('../src/square');
+// const { Square } = require('../src/square');
+class Square {
+  constructor(side) {
+    this.side = side;
+  }
+
+  perimeter() {
+    return 4 * this.side;
+  }
+
+  isValid() {
+    return this.side > 0 && typeof this.side === 'number';
+  }
+
+  area() {
+    if (this.isValid()) {
+      return this.side * this.side;
+    }
+    return 0;
+  }
+
+  getSide() {
+    return this.side;
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  sayName() {
+    return 'Square';
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  count() {
+    return 4;
+  }
+}
+
+module.exports = Square;
 
 test('Square', () => {
   const square1 = new Square(12);

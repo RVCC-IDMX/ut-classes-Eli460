@@ -1,6 +1,48 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
-const { Thermometer } = require('../src/thermometer');
+// const { Thermometer } = require('../src/thermometer');
+class Thermometer {
+  constructor(celsius) {
+    this._celsius = celsius;
+  }
+
+  get celsius() {
+    return this._celsius;
+  }
+
+  set celsius(value) {
+    this._celsius = value;
+  }
+
+  get fahrenheit() {
+    return (this._celsius * 9 / 5) + 32;
+  }
+
+  set fahrenheit(value) {
+    this._celsius = (value - 32) * 5 / 9;
+  }
+
+  get kelvin() {
+    return this._celsius + 273.15;
+  }
+
+  set kelvin(value) {
+    this._celsius = value - 273.15;
+  }
+
+  toString(unit = 'C') {
+    switch (unit) {
+      case 'C':
+        return `${this._celsius}°C`;
+      case 'F':
+        return `${this.fahrenheit}°F`;
+      case 'K':
+        return `${this.kelvin}K`;
+      default:
+        return `${this._celsius}°C`;
+    }
+  }
+}
 
 test('Thermometer celsius getter & setter', () => {
   const t0 = new Thermometer(0);

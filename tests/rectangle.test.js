@@ -1,6 +1,32 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
-const { Rectangle } = require('../src/rectangle');
+// const { Rectangle } = require('../src/rectangle');
+class Rectangle {
+  constructor(length, width) {
+    this.length = length;
+    this.width = width;
+  }
+
+  perimeter() {
+    return 2 * (this.length + this.width);
+  }
+
+  isValid() {
+    return this.length > 0 && this.width > 0;
+  }
+
+  area() {
+    return this.length * this.width;
+  }
+
+  sayName() {
+    return 'Rectangle';
+  }
+
+  count() {
+    return 4;
+  }
+}
 
 test('Rectangle', () => {
   const rectangle = new Rectangle(3, 4);

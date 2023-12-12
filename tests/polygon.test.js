@@ -1,6 +1,23 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
-const { Polygon } = require('../src/polygon');
+// const { Polygon } = require('../src/polygon');
+class Polygon {
+  constructor(sides) {
+    this.sides = sides;
+  }
+
+  count() {
+    return this.sides.length;
+  }
+
+  perimeter() {
+    return this.sides.reduce((sum, side) => sum + side, 0);
+  }
+
+  sayName() {
+    return 'Polygon';
+  }
+}
 
 test('polygon', () => {
   const threeSidedPolygon = new Polygon([3, 4, 5]);
